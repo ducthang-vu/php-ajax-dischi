@@ -47,7 +47,7 @@
         </div>
     </main>
 
-    <!-- TEMPLATE-->
+    <!-- TEMPLATE
     <script id="entry-template" type="text/x-handlebars-template">
         <div class="entry">
             <h1>{{title}}</h1>
@@ -55,7 +55,7 @@
             {{body}}
             </div>
         </div>
-    </script>
+    </script>-->
 
     <!-- SCRIPT -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js'></script>
