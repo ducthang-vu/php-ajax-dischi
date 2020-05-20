@@ -8,10 +8,11 @@ main {
 
         .card {
             flex-basis: 200px;
-            height: 300px;
+            height: 350px;
             padding: 20px;
             background-color: $header-background;
             margin: 25px;
+            cursor: pointer;
 
             .card__poster {
                 width: 160px;
