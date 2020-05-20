@@ -78,3 +78,49 @@ label {
 .in-block {
   display: inline-block;
 }
+
+header {
+  background: #000;
+}
+header .container {
+  margin: 0 auto;
+  width: 1150px;
+  max-width: 90%;
+  padding: 15px;
+}
+header .container .logo {
+  width: 30px;
+}
+
+main {
+  background: #222;
+  padding-top: 30px;
+}
+main .cards-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 750px;
+}
+main .cards-container .card {
+  flex-basis: 200px;
+  height: 300px;
+  padding: 20px;
+  background-color: #000;
+  margin: 25px;
+}
+main .cards-container .card .card__poster {
+  width: 100%;
+}
+main .cards-container .card .card__title,
+main .cards-container .card .card__year {
+  color: #fff;
+}
+main .cards-container .card .card__title {
+  margin: 10px 0;
+}
+main .cards-container .card .card__author {
+  color: #aaa;
+}

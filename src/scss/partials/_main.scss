@@ -1,0 +1,35 @@
+main {
+    background: #222;
+    padding-top: 30px;
+    
+    .cards-container {
+        @include flex($justify: space-between);
+        width: 750px;
+
+        .card {
+            flex-basis: 200px;
+            height: 300px;
+            padding: 20px;
+            background-color: $header-background;
+            margin: 25px;
+
+            .card__poster {
+                width: 100%;
+            }
+
+            .card__title,
+            .card__year {
+                color: #fff;
+            }
+
+            .card__title {
+                margin: 10px 0;
+            }
+
+            .card__author {
+                color: #aaa;
+            }
+        }
+    }
+}
+

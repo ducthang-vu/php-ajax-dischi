@@ -1,0 +1,12 @@
+header {
+    background: $header-background;
+
+    .container {
+        @include container;
+        padding: 15px;
+
+        .logo {
+            width: 30px;
+        }
+    }
+}

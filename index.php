@@ -9,9 +9,21 @@
 </head>
 <body>
     <header>
-        aaa
+        <div class="container">
+            <img src="./dist/img/spotify-logo.png" class="logo" alt="">
+        </div>
     </header>
 
+    <main>
+        <div class="cards-container  central">
+            <div class="card">
+                <img src="https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg" class="card__poster" alt="">
+                <h3 class="card__title text-center">New Jersey</h3>
+                <h4 class="card__author text-center">Bon Jovi</h4>
+                <h5 class="card__year text-center">1988</h5>
+            </div>
+        </div>
+    </main>
 
     <!-- TEMPLATE-->
     <script id="entry-template" type="text/x-handlebars-template">
