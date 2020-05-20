@@ -112,7 +112,7 @@ main .cards-container .card {
   margin: 25px;
 }
 main .cards-container .card .card__poster {
-  width: 100%;
+  width: 160px;
 }
 main .cards-container .card .card__title,
 main .cards-container .card .card__year {
