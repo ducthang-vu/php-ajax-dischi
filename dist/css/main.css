@@ -11,6 +11,7 @@ html {
 
 body {
   font-family: "Roboto Mono", monospace;
+  background: #222;
 }
 
 button,
@@ -110,16 +111,17 @@ header .container .input {
 }
 
 main {
-  background: #222;
   padding-top: 30px;
+  background: inherit;
 }
 main .cards-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
   max-width: 800px;
+  background: inherit;
 }
 main .cards-container .card {
   flex-basis: 200px;

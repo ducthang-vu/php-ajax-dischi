@@ -28,7 +28,7 @@
             <h3 class="card__title text-center"> {{ title }} </h3>
             <h4 class="card__author text-center"> {{ author }}</h4>
             <h5 class="card__year text-center"> {{ year }} </h5>
-        </li>'
+        </li>
     </script>
 
     <!-- SCRIPT -->
