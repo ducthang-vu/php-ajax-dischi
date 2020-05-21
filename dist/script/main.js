@@ -16118,6 +16118,7 @@ function callAjax(template, query) {
 
       if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container').html()) {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#failure-mess').addClass('active');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').focus().select();
       }
 
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').focus();
@@ -16143,7 +16144,8 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 
   startSearch(template);
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('#btn-logo').click(function () {
-    return startSearch(template);
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').val('').blur();
+    startSearch(template);
   }); // print items matching user query
 
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).keyup(function (e) {

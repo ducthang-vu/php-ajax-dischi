@@ -20,8 +20,9 @@ function callAjax(template, query) {
             printCards(template, $('#cards-container'), matched_data)
             if (!$('#cards-container').html()) {
                 $('#failure-mess').addClass('active')
+                $('#input').focus().select()
             }
-            $('#input').focus() 
+            $('#input').focus()
         },
         error: error => console.log(error)
     });
@@ -43,7 +44,10 @@ $(document).ready(function () {
 
     // print all items
     startSearch(template)
-    $('#btn-logo').click(() => startSearch(template)) 
+    $('#btn-logo').click(() => {
+        $('#input').val('').blur()
+        startSearch(template)
+    }) 
 
     // print items matching user query
     $(document).keyup(function(e) { 
