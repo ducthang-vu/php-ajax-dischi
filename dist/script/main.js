@@ -16115,6 +16115,10 @@ function callAjax(template, query) {
       }
 
       printCards(template, jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container'), matched_data);
+
+      if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container').html()) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#failure-mess').addClass('active');
+      }
     },
     error: function error(_error) {
       return console.log(_error);
@@ -16124,6 +16128,7 @@ function callAjax(template, query) {
 
 function startSearch(template) {
   var query = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('#failure-mess').removeClass('active');
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container').empty();
   callAjax(template, query);
 }

@@ -19,6 +19,9 @@
 
     <main>
         <ul id="cards-container" class="cards-container central"></ul>
+        <div id="failure-mess" class="no-display text-center">
+            <h3>No results, try again!</h3>
+        </div>
     </main>
 
     <!-- TEMPLATE -->
@@ -32,7 +35,6 @@
     </script>
 
     <!-- SCRIPT -->
-    <script src="https://kit.fontawesome.com/89ef06fff6.js" crossorigin="anonymous"></script>
     <script src="dist/script/main.js"></script>
 </body>
 </html> 

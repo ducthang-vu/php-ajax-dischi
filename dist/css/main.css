@@ -144,3 +144,8 @@ main .cards-container .card .card__title {
 main .cards-container .card .card__author {
   color: #aaa;
 }
+main .active {
+  display: block;
+  padding-top: 30px;
+  color: #fff;
+}

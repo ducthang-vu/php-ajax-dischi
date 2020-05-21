@@ -18,12 +18,16 @@ function callAjax(template, query) {
                 )
             }
             printCards(template, $('#cards-container'), matched_data)
+            if (!$('#cards-container').html()) {
+                $('#failure-mess').addClass('active')
+            } 
         },
         error: error => console.log(error)
     });
 }
 
 function startSearch(template, query='') {
+    $('#failure-mess').removeClass('active')
     $('#cards-container').empty()
     callAjax(template, query)
 }
