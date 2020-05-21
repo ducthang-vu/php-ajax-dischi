@@ -2,6 +2,7 @@ import $ from 'jquery'
 const Handlebars = require("handlebars")
 
 
+/* FUNCTIONS */
 function printCards(template, container, arr_object) {
     arr_object.forEach(object => container.append(template(object)))
 }		
@@ -40,6 +41,7 @@ function startSearch(template, query='') {
 }
 
 
+/* MAIN */
 $(document).ready(function () {
     // init handlebars
     var source = $('#card-template').html()

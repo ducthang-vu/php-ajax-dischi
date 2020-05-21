@@ -16094,6 +16094,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
+/* FUNCTIONS */
+
 
 function printCards(template, container, arr_object) {
   arr_object.forEach(function (object) {
@@ -16136,6 +16138,8 @@ function startSearch(template) {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container').empty();
   callAjax(template, query);
 }
+/* MAIN */
+
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   // init handlebars
