@@ -16104,28 +16104,26 @@ function printCards(template, container, arr_object) {
 function callAjax(template, query) {
   jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
     method: "GET",
-    url: "http://localhost:80/php-ajax-dischi/partials/script/json-script.php",
-    success: function success(response) {
-      var matched_data = response;
+    url: "http://localhost:80/php-ajax-dischi/partials/script/json-script.php"
+  }).done(function (response) {
+    var matched_data = response;
 
-      if (query) {
-        matched_data = response.filter(function (x) {
-          return x.author.toLowerCase().includes(query);
-        });
-      }
-
-      printCards(template, jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container'), matched_data);
-
-      if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container').html()) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#failure-mess').addClass('active');
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').focus().select();
-      }
-
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').focus();
-    },
-    error: function error(_error) {
-      return console.log(_error);
+    if (query) {
+      matched_data = response.filter(function (x) {
+        return x.author.toLowerCase().includes(query);
+      });
     }
+
+    printCards(template, jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container'), matched_data);
+
+    if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container').html()) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#failure-mess').addClass('active');
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').focus().select();
+    }
+
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').focus();
+  }).fail(function (error) {
+    return console.log(error);
   });
 }
 

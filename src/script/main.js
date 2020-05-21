@@ -6,11 +6,13 @@ function printCards(template, container, arr_object) {
     arr_object.forEach(object => container.append(template(object)))
 }		
 
+
 function callAjax(template, query) {
     $.ajax({
         method: "GET",
         url: "http://localhost:80/php-ajax-dischi/partials/script/json-script.php",
-        success: response => {
+    }).done(
+        response => {
             let matched_data = response
             if (query) {
                 matched_data = response.filter(
@@ -23,9 +25,8 @@ function callAjax(template, query) {
                 $('#input').focus().select()
             }
             $('#input').focus()
-        },
-        error: error => console.log(error)
-    });
+        }
+    ).fail(error => console.log(error))
 }
 
 function startSearch(template, query='') {
