@@ -20,7 +20,8 @@ function callAjax(template, query) {
             printCards(template, $('#cards-container'), matched_data)
             if (!$('#cards-container').html()) {
                 $('#failure-mess').addClass('active')
-            } 
+            }
+            $('#input').focus() 
         },
         error: error => console.log(error)
     });
@@ -37,6 +38,8 @@ $(document).ready(function () {
     // init handlebars
     var source = $('#card-template').html()
     var template = Handlebars.compile(source)
+
+    $('#input').focus()
 
     // print all items
     startSearch(template)

@@ -16119,6 +16119,8 @@ function callAjax(template, query) {
       if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container').html()) {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#failure-mess').addClass('active');
       }
+
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').focus();
     },
     error: function error(_error) {
       return console.log(_error);
@@ -16136,7 +16138,8 @@ function startSearch(template) {
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   // init handlebars
   var source = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#card-template').html();
-  var template = Handlebars.compile(source); // print all items
+  var template = Handlebars.compile(source);
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').focus(); // print all items
 
   startSearch(template);
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('#btn-logo').click(function () {
