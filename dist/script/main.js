@@ -16132,16 +16132,17 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   // init handlebars
   var source = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#card-template').html();
   var template = Handlebars.compile(source); // print all items
-  //callAjax(template)
 
   startSearch(template);
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).keyup(function (e) {
-    if (e.which == 13 || e.keyCode == 13) {
-      startSearch(template, jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').val().trim().toLowerCase());
-    }
-  });
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('#btn-logo').click(function () {
     return startSearch(template);
+  }); // print items matching user query
+
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).keyup(function (e) {
+    if (e.which == 13 || e.keyCode == 13) {
+      var query = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').val().trim().toLowerCase();
+      if (query) startSearch(template, query);
+    }
   });
 });
 

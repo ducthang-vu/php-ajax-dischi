@@ -35,14 +35,16 @@ $(document).ready(function () {
     var template = Handlebars.compile(source)
 
     // print all items
-    //callAjax(template)
-    startSearch(template) 
+    startSearch(template)
+    $('#btn-logo').click(() => startSearch(template)) 
 
+    // print items matching user query
     $(document).keyup(function(e) { 
         if (e.which == 13 || e.keyCode == 13) {
-            startSearch(template, $('#input').val().trim().toLowerCase())
+            let query = $('#input').val().trim().toLowerCase()
+            if (query) startSearch(template, query)
         }
     });
 
-    $('#btn-logo').click(() => startSearch(template))
+
 });
