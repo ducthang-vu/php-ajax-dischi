@@ -49,6 +49,4 @@ $(document).ready(function () {
             if (query) startSearch(template, query)
         }
     });
-
-
 });
