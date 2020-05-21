@@ -4,7 +4,7 @@ main {
     
     .cards-container {
         @include flex($justify: space-between);
-        width: 750px;
+        max-width: 800px;
 
         .card {
             flex-basis: 200px;

@@ -16101,6 +16101,18 @@ console.log(Handlebars)
 */
 
 
+function printCards(template, container, arr_object) {
+  arr_object.forEach(function (object) {
+    var context = {
+      poster: object.poster,
+      title: object.title,
+      author: object.author,
+      year: object.year
+    };
+    container.append(template(context));
+  });
+}
+
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   // init handlebars
   var source = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#card-template').html();
@@ -16110,7 +16122,10 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
     method: "GET",
     url: "http://localhost:80/php-ajax-dischi/partials/script/json-script.php",
     success: function success(response) {
-      console.log(response);
+      printCards(template, jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container'), response);
+    },
+    error: function error(_error) {
+      return console.log(_error);
     }
   });
 });

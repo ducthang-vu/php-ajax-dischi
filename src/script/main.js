@@ -7,6 +7,21 @@ console.log($)
 console.log(Handlebars)
 */
 
+
+function printCards(template, container, arr_object) {
+    arr_object.forEach(object => {
+        var context = {
+			poster: object.poster,
+			title: object.title,
+			author: object.author,
+			year: object.year
+		}
+		
+		container.append(template(context));
+    })
+}		
+
+
 $(document).ready(function () {
     // init handlebars
     var source = $('#card-template').html()
@@ -16,8 +31,9 @@ $(document).ready(function () {
     $.ajax({
         method: "GET",
         url: "http://localhost:80/php-ajax-dischi/partials/script/json-script.php",
-        success: function (response) {
-            console.log(response)
-        }
+        success: response => {
+            printCards(template, $('#cards-container'), response)
+        },
+        error: error => console.log(error)
     });
 });

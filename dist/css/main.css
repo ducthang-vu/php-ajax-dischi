@@ -106,7 +106,7 @@ main .cards-container {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  width: 750px;
+  max-width: 800px;
 }
 main .cards-container .card {
   flex-basis: 200px;
