@@ -32,6 +32,7 @@ function callAjax(template, query) {
     }).fail(error => console.log(error))
 }
 
+
 function startSearch(template, query='') {
     $('#failure-mess').removeClass('active')
     $('#cards-container').empty()
