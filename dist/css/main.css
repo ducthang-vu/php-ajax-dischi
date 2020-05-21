@@ -87,6 +87,11 @@ header {
   background: #000;
 }
 header .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   margin: 0 auto;
   width: 1150px;
   max-width: 90%;
@@ -94,6 +99,13 @@ header .container {
 }
 header .container .logo {
   width: 30px;
+}
+header .container .input {
+  padding: 10px 15px;
+  background: #111;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
 }
 
 main {

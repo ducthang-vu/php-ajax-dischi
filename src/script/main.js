@@ -1,25 +1,32 @@
 import $ from 'jquery'
 const Handlebars = require("handlebars")
 
-/*
-console.log('main.js is working')
-console.log($)
-console.log(Handlebars)
-*/
-
 
 function printCards(template, container, arr_object) {
-    arr_object.forEach(object => {
-        var context = {
-			poster: object.poster,
-			title: object.title,
-			author: object.author,
-			year: object.year
-		}
-		
-		container.append(template(context));
-    })
+    arr_object.forEach(object => container.append(template(object)))
 }		
+
+function callAjax(template, query) {
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:80/php-ajax-dischi/partials/script/json-script.php",
+        success: response => {
+            let matched_data = response
+            if (query) {
+                matched_data = response.filter(
+                    x => x.author.toLowerCase().includes(query)
+                )
+            }
+            printCards(template, $('#cards-container'), matched_data)
+        },
+        error: error => console.log(error)
+    });
+}
+
+function startSearch(template, query='') {
+    $('#cards-container').empty()
+    callAjax(template, query)
+}
 
 
 $(document).ready(function () {
@@ -28,12 +35,14 @@ $(document).ready(function () {
     var template = Handlebars.compile(source)
 
     // print all items
-    $.ajax({
-        method: "GET",
-        url: "http://localhost:80/php-ajax-dischi/partials/script/json-script.php",
-        success: response => {
-            printCards(template, $('#cards-container'), response)
-        },
-        error: error => console.log(error)
+    //callAjax(template)
+    startSearch(template) 
+
+    $(document).keyup(function(e) { 
+        if (e.which == 13 || e.keyCode == 13) {
+            startSearch(template, $('#input').val().trim().toLowerCase())
+        }
     });
+
+    $('#btn-logo').click(() => startSearch(template))
 });

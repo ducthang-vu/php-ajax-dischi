@@ -16094,39 +16094,54 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
-/*
-console.log('main.js is working')
-console.log($)
-console.log(Handlebars)
-*/
-
 
 function printCards(template, container, arr_object) {
   arr_object.forEach(function (object) {
-    var context = {
-      poster: object.poster,
-      title: object.title,
-      author: object.author,
-      year: object.year
-    };
-    container.append(template(context));
+    return container.append(template(object));
   });
+}
+
+function callAjax(template, query) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
+    method: "GET",
+    url: "http://localhost:80/php-ajax-dischi/partials/script/json-script.php",
+    success: function success(response) {
+      var matched_data = response;
+
+      if (query) {
+        matched_data = response.filter(function (x) {
+          return x.author.toLowerCase().includes(query);
+        });
+      }
+
+      printCards(template, jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container'), matched_data);
+    },
+    error: function error(_error) {
+      return console.log(_error);
+    }
+  });
+}
+
+function startSearch(template) {
+  var query = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container').empty();
+  callAjax(template, query);
 }
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   // init handlebars
   var source = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#card-template').html();
   var template = Handlebars.compile(source); // print all items
+  //callAjax(template)
 
-  jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
-    method: "GET",
-    url: "http://localhost:80/php-ajax-dischi/partials/script/json-script.php",
-    success: function success(response) {
-      printCards(template, jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container'), response);
-    },
-    error: function error(_error) {
-      return console.log(_error);
+  startSearch(template);
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).keyup(function (e) {
+    if (e.which == 13 || e.keyCode == 13) {
+      startSearch(template, jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').val().trim().toLowerCase());
     }
+  });
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('#btn-logo').click(function () {
+    return startSearch(template);
   });
 });
 

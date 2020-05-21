@@ -10,7 +10,10 @@
 <body>
     <header>
         <div class="container">
-            <img src="./dist/img/spotify-logo.png" class="logo" alt="">
+            <button id="btn-logo">
+                <img src="./dist/img/spotify-logo.png" class="logo" alt="">
+            </button>
+            <input type="text" id="input" class="input" placeholder="search an author">
         </div>
     </header>
 
