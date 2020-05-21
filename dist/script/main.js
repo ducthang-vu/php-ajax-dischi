@@ -16094,11 +16094,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
+/*
+console.log('main.js is working')
+console.log($)
+console.log(Handlebars)
+*/
 
-console.log('main.js is working');
-console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
-console.log(Handlebars);
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {});
+
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+  // init handlebars
+  var source = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#card-template').html();
+  var template = Handlebars.compile(source); // print all items
+
+  jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
+    method: "GET",
+    url: "http://localhost:80/php-ajax-dischi/partials/script/json-script.php",
+    success: function success(response) {
+      console.log(response);
+    }
+  });
+});
 
 /***/ }),
 

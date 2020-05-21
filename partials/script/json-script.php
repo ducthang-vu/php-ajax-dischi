@@ -1,7 +1,7 @@
 <?php
-
-//header('Content-Type => application/json');   
-
-include __DIR__ . '../data/data.php';
-
-//echo json_encode($database);  
+    include dirname(__DIR__) . '/data/data.php';
+    header( 
+        'Access-Control-Allow-Origin: *', 
+        'Content-Type => application/json'
+    );   
+    echo json_encode($database);  

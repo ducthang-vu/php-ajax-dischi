@@ -24,6 +24,10 @@ label {
   outline: 0;
 }
 
+li {
+  list-style: none;
+}
+
 /* UTILITIES */
 .block {
   display: block;

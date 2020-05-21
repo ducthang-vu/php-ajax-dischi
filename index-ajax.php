@@ -15,19 +15,17 @@
     </header>
 
     <main>
-        <div class="cards-container central">
-
-        </div>
+        <ul id="cards-container" class="cards-container central"></ul>
     </main>
 
     <!-- TEMPLATE -->
     <script id="card-template" type="text/x-handlebars-template">
-        <div class="card">
+        <li class="card">
             <img src= {{ poster }} class="card__poster" alt="">
             <h3 class="card__title text-center"> {{ title }} </h3>
             <h4 class="card__author text-center"> {{ author }}</h4>
             <h5 class="card__year text-center"> {{ year }} </h5>
-        </div>'
+        </li>'
     </script>
 
     <!-- SCRIPT -->
