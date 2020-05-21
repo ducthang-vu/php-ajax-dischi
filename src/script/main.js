@@ -7,26 +7,29 @@ function printCards(template, container, arr_object) {
 }		
 
 
+function endSearch() {
+    if (!$('#cards-container').html()) {
+        $('#failure-mess').addClass('active')
+        $('#input').focus().select()
+    }
+    $('#input').focus()
+}
+
+
 function callAjax(template, query) {
     $.ajax({
         method: "GET",
         url: "http://localhost:80/php-ajax-dischi/partials/script/json-script.php",
-    }).done(
-        response => {
-            let matched_data = response
-            if (query) {
-                matched_data = response.filter(
-                    x => x.author.toLowerCase().includes(query)
-                )
-            }
-            printCards(template, $('#cards-container'), matched_data)
-            if (!$('#cards-container').html()) {
-                $('#failure-mess').addClass('active')
-                $('#input').focus().select()
-            }
-            $('#input').focus()
+    }).done(response => {
+        let matched_data = response
+        if (query) {
+            matched_data = response.filter(
+                x => x.author.toLowerCase().includes(query)
+            )
         }
-    ).fail(error => console.log(error))
+        printCards(template, $('#cards-container'), matched_data)
+        endSearch()
+    }).fail(error => console.log(error))
 }
 
 function startSearch(template, query='') {

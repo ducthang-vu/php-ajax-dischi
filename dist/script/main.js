@@ -16101,6 +16101,15 @@ function printCards(template, container, arr_object) {
   });
 }
 
+function endSearch() {
+  if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container').html()) {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#failure-mess').addClass('active');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').focus().select();
+  }
+
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').focus();
+}
+
 function callAjax(template, query) {
   jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
     method: "GET",
@@ -16115,13 +16124,7 @@ function callAjax(template, query) {
     }
 
     printCards(template, jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container'), matched_data);
-
-    if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()('#cards-container').html()) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#failure-mess').addClass('active');
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').focus().select();
-    }
-
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input').focus();
+    endSearch();
   }).fail(function (error) {
     return console.log(error);
   });
