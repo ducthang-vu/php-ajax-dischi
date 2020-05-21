@@ -25,7 +25,7 @@
             </div>-->
 
             <?php
-                include 'json-script.php';
+                include __DIR__ . './partials/data/data.php';
                 $template = '
                     <div class="card">
                         <img src=%s class="card__poster" alt="">
@@ -42,7 +42,6 @@
                                 $item['year']
                                 );
                 }
-
             ?>
         </div>
     </main>
