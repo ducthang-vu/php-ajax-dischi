@@ -16,43 +16,17 @@
 
     <main>
         <div class="cards-container central">
-            <!-- TEMPLATE EXAMPLE 
-            <div class="card">
-                <img src="https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg" class="card__poster" alt="">
-                <h3 class="card__title text-center">New Jersey</h3>
-                <h4 class="card__author text-center">Bon Jovi</h4>
-                <h5 class="card__year text-center">1988</h5>
-            </div>-->
 
-            <?php
-                include __DIR__ . './partials/data/data.php';
-                $template = '
-                    <div class="card">
-                        <img src=%s class="card__poster" alt="">
-                        <h3 class="card__title text-center">%s</h3>
-                        <h4 class="card__author text-center">%s</h4>
-                        <h5 class="card__year text-center">%s</h5>
-                    </div>';
-
-                foreach ($database as $item) {
-                    echo sprintf($template,
-                                $item['poster'],
-                                $item['title'],
-                                $item['author'],
-                                $item['year']
-                                );
-                }
-            ?>
         </div>
     </main>
 
     <!-- TEMPLATE -->
     <script id="card-template" type="text/x-handlebars-template">
         <div class="card">
-            <img src=%s class="card__poster" alt="">
-            <h3 class="card__title text-center">%s</h3>
-            <h4 class="card__author text-center">%s</h4>
-            <h5 class="card__year text-center">%s</h5>
+            <img src= {{ poster }} class="card__poster" alt="">
+            <h3 class="card__title text-center"> {{ title }} </h3>
+            <h4 class="card__author text-center"> {{ author }}</h4>
+            <h5 class="card__year text-center"> {{ year }} </h5>
         </div>'
     </script>
 
